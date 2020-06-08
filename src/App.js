@@ -4,6 +4,7 @@ import Home from './Components/Home';
 import UserProfile from './Components/UserProfile'
 import LogIn from './Components/Login'
 import Debits from './Components/Debits'
+import Credits from './Components/Credits'
 
 class App extends Component {
   constructor(){
@@ -16,6 +17,8 @@ class App extends Component {
       }
     }
   }
+
+  onChange = (newName) => { this.setState({ accountBalance: newName });}
 
   mockLogIn = (logInInfo) => {
     const newUser = {...this.state.currentUser}
@@ -33,7 +36,9 @@ class App extends Component {
 
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} {...this.props}/>)
 
-    const DebitsComponent = () => (<Debits />)
+    const DebitsComponent = () => (<Debits  accountBalance={this.state.accountBalance}  onAmountChange={this.onChange} />)
+
+    const CreditsComponent = () => (<Credits accountBalance={this.state.accountBalance}  onAmountChange={this.onChange} />)
 
     return (
         <Router>
@@ -42,6 +47,7 @@ class App extends Component {
             <Route exact path="/Home" component={HomeComponent}/>
             <Route exact path='/userProfile' render={UserProfileComponent} />
             <Route exact path="/Debits" render={DebitsComponent} />
+            <Route exact path="/Credits" render={CreditsComponent} />
           </Switch>
         </Router>
     );

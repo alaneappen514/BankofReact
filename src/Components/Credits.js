@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 
-class Debits extends Component{
+class Credits extends Component{
     constructor(){
         super();
         this.state={
@@ -46,7 +46,7 @@ class Debits extends Component{
                        + currentdate.getSeconds();
 
 
-        let total = this.props.accountBalance - parseInt(this.state.amountInput)
+        let total = this.props.accountBalance + parseInt(this.state.amountInput)
         this.props.onAmountChange(total);
 
         const DebitBox = this.state.DebitData;
@@ -63,7 +63,7 @@ class Debits extends Component{
   render(){
       return(
           <div className = "container">
-              <h3>Debits</h3>
+              <h3>Credits</h3>
               <Link to='/Home'>Home</Link>
               <AccountBalance accountBalance = {this.props.accountBalance}/>
               <form onSubmit={this.onAdd}>
@@ -84,4 +84,4 @@ class Debits extends Component{
       );
   }
 }
-export default Debits;
+export default Credits;
