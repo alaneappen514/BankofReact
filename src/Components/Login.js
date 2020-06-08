@@ -36,7 +36,9 @@ class LogIn extends Component {
     }
 
     return (
-      <div>
+
+      <div className ="container d-flex justify-content-center align-itens-center">
+       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="userName">User Name</label>
@@ -46,9 +48,11 @@ class LogIn extends Component {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" />
           </div>
-          <button>Log In</button>
+          <button className ="btn btn-danger mr-2">Log In</button>
+          <Link className ="btn btn-danger" to='/Home'>Home</Link>
         </form>
-        <Link to="/Home">Home</Link>
+        </div>
+      
       </div>
     )
   }

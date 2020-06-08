@@ -4,12 +4,14 @@ import {Link} from 'react-router-dom';
 class UserProfile extends Component {
   render() {
     return (
-        <div>
+        <div className = "container d-flex justify-content-center align-items-center">
+          <div>
           <h1>User Profile</h1>
 
           <div>Username: {this.props.userName}</div>
           <div>Member Since: {this.props.memberSince}</div>
-          <Link to="/Home">Home</Link>
+          <Link className ="btn btn-danger"  to="/Home">Home</Link>
+          </div>
         </div>
     );
   }
