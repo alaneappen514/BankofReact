@@ -10,13 +10,12 @@ class Debits extends Component{
         super();
         this.state={
             DebitData: [],
-            DescInput: '',
-            amountInput: '',
+            DescInput: null,
+            amountInput: null,
             time: null,
         }
        
     }
-
     componentDidMount(){
         axios
          .get("https://moj-api.herokuapp.com/debits")
@@ -36,6 +35,8 @@ class Debits extends Component{
     }
     
     onAdd = (event) => {
+        if(this.state.DescInput != null && this.state.amountInput != null)
+        {
        event.preventDefault();
        var currentdate = new Date(); 
        this.state.time = currentdate.getDate() + "/"
@@ -44,8 +45,6 @@ class Debits extends Component{
                        + currentdate.getHours() + ":"  
                        + currentdate.getMinutes() + ":" 
                        + currentdate.getSeconds();
-
-
         let total = this.props.accountBalance - parseInt(this.state.amountInput)
         this.props.onAmountChange(total);
 
@@ -58,8 +57,12 @@ class Debits extends Component{
         this.setState({
             DebitData: DebitBox,
           });
+        }
+        else{
+            event.preventDefault();
+            alert("Please enter Description and Amount");
+        }
     }
-
   render(){
       return(
           <div className = "container">
