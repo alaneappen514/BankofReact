@@ -67,7 +67,7 @@ class Debits extends Component{
       return(
           <div className = "container">
               <h3>Debits</h3>
-              <Link className ="btn btn-danger" to='/Home'>Home</Link>
+              <Link className ="btn btn-danger" to='/'>Home</Link>
               <AccountBalance accountBalance = {this.props.accountBalance}/>
               <form onSubmit={this.onAdd}>
                   <input placeholder = "Enter Description" value={this.state.DescInput} onChange={this.handleDescInput}></input>

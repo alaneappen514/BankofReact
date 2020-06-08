@@ -49,7 +49,7 @@ class LogIn extends Component {
             <input type="password" name="password" />
           </div>
           <button className ="btn btn-danger mr-2">Log In</button>
-          <Link className ="btn btn-danger" to='/Home'>Home</Link>
+          <Link className ="btn btn-danger" to='/'>Home</Link>
         </form>
         </div>
       
